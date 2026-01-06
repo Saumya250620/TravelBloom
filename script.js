@@ -50,6 +50,17 @@ function search(){
 
     let results = [];
 
+    // Category Search
+    if(input === "temple" || input === "temples"){
+        results = travelData.temples;
+    } else if (input === "beach" || input === "beaches"){
+        results = travelData.beaches;
+    } else if (input === "city" || input === "cities"){
+        travelData.countries.forEach(country => {
+            results.push(...country.cities);
+        });
+    }
+
     // Search cities
     travelData.countries?.forEach(country => {
         country.cities?.forEach(city => {
